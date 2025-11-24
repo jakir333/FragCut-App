@@ -1,4 +1,4 @@
-name: Build APK
+name: Build APK Fixed
 
 on: [push, workflow_dispatch]
 
@@ -14,6 +14,11 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+
+      - name: Setup Gradle 7.6 (Force Old Version)
+        uses: gradle/actions/setup-gradle@v3
+        with:
+          gradle-version: '7.6'
           
       - name: Build APK
         run: gradle assembleDebug --stacktrace
