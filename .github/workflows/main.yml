@@ -1,4 +1,4 @@
-name: Build APK Fixed
+name: Build APK Final
 
 on: [push, workflow_dispatch]
 
@@ -15,10 +15,10 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
-      - name: Setup Gradle 7.6 (Force Old Version)
+      - name: Setup Gradle 8.2 (The Sweet Spot)
         uses: gradle/actions/setup-gradle@v3
         with:
-          gradle-version: '7.6'
+          gradle-version: '8.2'
           
       - name: Build APK
         run: gradle assembleDebug --stacktrace
